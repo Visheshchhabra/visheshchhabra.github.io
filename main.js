@@ -10,10 +10,10 @@ $(document).ready(function(){
       var total_recovered;
         var total_deaths;
 
-        total_confirmed =data.statewise[0].confirmed;
-        total_active =data.statewise[0].active;
-        total_recovered =data.statewise[0].recovered;
-        total_deaths =data.statewise[0].deaths;
+        total_confirmed =addCommas(data.statewise[0].confirmed);
+        total_active =addCommas(data.statewise[0].active);
+        total_recovered =addCommas(data.statewise[0].recovered);
+        total_deaths =addCommas(data.statewise[0].deaths);
 
         $("#confirmed").append(total_confirmed);
         $("#active").append(total_active);
@@ -64,3 +64,16 @@ var chart =new Chart(myChart,{
 
 });
 });
+
+function addCommas(nStr)
+    {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }

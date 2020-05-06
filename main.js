@@ -19,14 +19,14 @@ $(document).ready(function(){
         $("#active").append(total_active);
         $("#recovered").append(total_recovered);
         $("#deaths").append(total_deaths);
-  //console.log(data.statewise);
+  console.log(total_confirmed);
   $.each(data.statewise,function(id,obj ){
   states.push(obj.state);
   confirmed.push(obj.confirmed);
   recovered.push(obj.recovered);
   deaths.push(obj.deaths);
   });
-console.log(states);
+//console.log(states);
 states.shift(); //remove the 1st entry (total)
 confirmed.shift();
 recovered.shift();
